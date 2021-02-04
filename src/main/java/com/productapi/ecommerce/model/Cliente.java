@@ -1,9 +1,13 @@
 package com.productapi.ecommerce.model;
 
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+
 /**
  * 
  */
-public class Cliente {
+@Entity
+public class Cliente extends AbstractEntity {
 
 	/**
 	 * Default constructor
@@ -14,11 +18,13 @@ public class Cliente {
 	/**
 	 * 
 	 */
+	@OneToOne
 	private Conta conta;
 
 	/**
 	 * 
 	 */
+	@OneToOne
 	private Pessoa dadosPessoa;
 
 	public Conta getConta() {

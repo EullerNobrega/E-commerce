@@ -1,9 +1,14 @@
 package com.productapi.ecommerce.model;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Entity;
+
 /**
  * 
  */
-public abstract class Pessoa {
+@Entity
+@DiscriminatorColumn(name="Pessoa")
+public abstract class Pessoa extends AbstractEntity {
 
 	/**
 	 * Default constructor

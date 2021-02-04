@@ -1,9 +1,13 @@
 package com.productapi.ecommerce.model;
 
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+
 /**
  * 
  */
-public class Item {
+@Entity
+public class Item extends AbstractEntity {
 
 	/**
 	 * Default constructor
@@ -19,6 +23,7 @@ public class Item {
 	/**
 	 * 
 	 */
+	@OneToOne
 	private Produto produto;
 
 	public int getQuantidade() {

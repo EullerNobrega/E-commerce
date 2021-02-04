@@ -1,35 +1,40 @@
 package com.productapi.ecommerce.model;
 
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+
 /**
  * 
  */
-public class Produto {
+@Entity
+public class Produto extends AbstractEntity {
 
-    /**
-     * Default constructor
-     */
-    public Produto() {
-    }
+	/**
+	 * Default constructor
+	 */
+	public Produto() {
+	}
 
-    /**
-     * 
-     */
-    private String descricao;
+	/**
+	 * 
+	 */
+	private String descricao;
 
-    /**
-     * 
-     */
-    private float preco;
+	/**
+	 * 
+	 */
+	private float preco;
 
-    /**
-     * 
-     */
-    private String qtdEstoque;
+	/**
+	 * 
+	 */
+	private String qtdEstoque;
 
-    /**
-     * 
-     */
-    private Categoria categoria;
+	/**
+	 * 
+	 */
+	@OneToOne
+	private Categoria categoria;
 
 	public String getDescricao() {
 		return descricao;
@@ -62,5 +67,5 @@ public class Produto {
 	public void setCategorial(Categoria categoria) {
 		this.categoria = categoria;
 	}
-    
+
 }

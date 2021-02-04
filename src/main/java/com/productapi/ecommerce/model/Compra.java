@@ -2,10 +2,15 @@ package com.productapi.ecommerce.model;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
 /**
  * 
  */
-public class Compra {
+@Entity
+public class Compra extends AbstractEntity {
 
 	/**
 	 * Default constructor
@@ -21,18 +26,19 @@ public class Compra {
 	/**
 	 * 
 	 */
+	@OneToOne
 	private Cliente clientePagador;
 
 	/**
 	 * 
 	 */
+	@OneToMany
 	private List<Item> itens;
 
 	/**
 	 * 
 	 */
 	private double valorCompra;
-	
 
 	public StatusPagamento getSituacao() {
 		return situacao;

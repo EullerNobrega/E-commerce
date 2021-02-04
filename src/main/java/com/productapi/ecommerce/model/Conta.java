@@ -1,9 +1,12 @@
 package com.productapi.ecommerce.model;
 
+import javax.persistence.Entity;
+
 /**
  * 
  */
-public class Conta {
+@Entity
+public class Conta extends AbstractEntity {
 
 	/**
 	 * Default constructor

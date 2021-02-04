@@ -1,28 +1,39 @@
 package com.productapi.ecommerce.model;
 
+import java.util.List;
 
-import java.util.*;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  * 
  */
-public class Carrinho {
+@Entity
+public class Carrinho extends AbstractEntity {
 
-    /**
-     * Default constructor
-     */
-    public Carrinho() {
-    }
+	/**
+	 * Default constructor
+	 */
+	public Carrinho() {
+	}
 
-    /**
-     * 
-     */
-    private float total;
-    
-    /**
-     * 
-     */
-    private List<Item> itens;
+	/**
+	 * 
+	 */
+	private float total;
+
+	/**
+	 * 
+	 */
+	@OneToMany
+	private List<Item> itens;
+	
+	/**
+	 * 
+	 */
+	@OneToOne
+	private Cliente cliente;
 
 	public float getTotal() {
 		return total;
@@ -40,6 +51,12 @@ public class Carrinho {
 		this.itens = itens;
 	}
 
+	public Cliente getCliente() {
+		return cliente;
+	}
 
-
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+	
 }

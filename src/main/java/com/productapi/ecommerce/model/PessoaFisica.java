@@ -1,8 +1,13 @@
 package com.productapi.ecommerce.model;
 
+import javax.persistence.Entity;
+
+import org.hibernate.validator.constraints.br.CPF;
+
 /**
  * 
  */
+@Entity
 public class PessoaFisica extends Pessoa {
 
 	/**
@@ -14,6 +19,7 @@ public class PessoaFisica extends Pessoa {
 	/**
 	 * 
 	 */
+	@CPF
 	private String cpf;
 
 	/**
