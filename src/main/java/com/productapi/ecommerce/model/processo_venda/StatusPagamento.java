@@ -1,4 +1,4 @@
-package com.productapi.ecommerce.model;
+package com.productapi.ecommerce.model.processo_venda;
 
 /**
  * 

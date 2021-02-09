@@ -1,10 +1,13 @@
-package com.productapi.ecommerce.model;
+package com.productapi.ecommerce.model.processo_venda;
 
 import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import com.productapi.ecommerce.model.AbstractEntity;
+import com.productapi.ecommerce.model.pessoa.Cliente;
 
 /**
  * 

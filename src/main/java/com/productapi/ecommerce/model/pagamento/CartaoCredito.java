@@ -1,4 +1,6 @@
-package com.productapi.ecommerce.model;
+package com.productapi.ecommerce.model.pagamento;
+
+import com.productapi.ecommerce.model.processo_venda.StatusPagamento;
 
 /**
  * 

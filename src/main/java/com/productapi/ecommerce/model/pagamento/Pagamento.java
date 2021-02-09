@@ -1,6 +1,8 @@
-package com.productapi.ecommerce.model;
+package com.productapi.ecommerce.model.pagamento;
 
 import javax.persistence.Entity;
+
+import com.productapi.ecommerce.model.AbstractEntity;
 
 /**
  * 
