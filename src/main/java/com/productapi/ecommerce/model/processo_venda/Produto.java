@@ -2,6 +2,8 @@ package com.productapi.ecommerce.model.processo_venda;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import com.productapi.ecommerce.model.AbstractEntity;
 
@@ -20,6 +22,7 @@ public class Produto extends AbstractEntity {
 	/**
 	 * 
 	 */
+	@NotNull
 	private String descricao;
 
 	/**
@@ -30,13 +33,17 @@ public class Produto extends AbstractEntity {
 	/**
 	 * 
 	 */
-	private String qtdEstoque;
+	private int qtdEstoque;
 
 	/**
 	 * 
 	 */
 	@OneToOne
 	private Categoria categoria;
+	
+	/**
+	 * 
+	 */
 
 	public String getDescricao() {
 		return descricao;
@@ -54,19 +61,19 @@ public class Produto extends AbstractEntity {
 		this.preco = preco;
 	}
 
-	public String getQtdEstoque() {
+	public int getQtdEstoque() {
 		return qtdEstoque;
 	}
 
-	public void setQtdEstoque(String qtdEstoque) {
+	public void setQtdEstoque(int qtdEstoque) {
 		this.qtdEstoque = qtdEstoque;
 	}
 
-	public Categoria getCategorial() {
+	public Categoria getCategoria() {
 		return categoria;
 	}
 
-	public void setCategorial(Categoria categoria) {
+	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
 

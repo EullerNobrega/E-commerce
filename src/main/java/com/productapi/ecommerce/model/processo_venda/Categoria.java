@@ -20,6 +20,10 @@ public class Categoria extends AbstractEntity {
 	 * 
 	 */
 	private String tipo;
+	
+	/**
+	 * 
+	 */
 
 	public String getTipo() {
 		return tipo;
