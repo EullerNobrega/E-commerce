@@ -18,23 +18,23 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.productapi.ecommerce.event.RecursoCriadoEvent;
-import com.productapi.ecommerce.model.processo_venda.Produto;
-import com.productapi.ecommerce.services.ServiceProduto;
+import com.productapi.ecommerce.model.processo_venda.Categoria;
+import com.productapi.ecommerce.services.ServiceCategoria;
 
 @RestController
-@RequestMapping("produtos")
-public class ControllerProdutos implements CADController<Produto> {
+@RequestMapping("categorias")
+public class ControllerCategoria implements CADController<Categoria> {
 	
 	@Autowired
-	private ServiceProduto produtoService;
+	private ServiceCategoria categoriaService;
 
 	@Autowired
 	private ApplicationEventPublisher publisher;
 
 	@PostMapping
 	@Override
-	public ResponseEntity<Produto> insere(@Valid Produto produto, HttpServletResponse httpServletResponse) {
-		Produto produtoPersistido = produtoService.persiste(produto);
+	public ResponseEntity<Categoria> insere(@Valid Categoria Categoria, HttpServletResponse httpServletResponse) {
+		Categoria produtoPersistido = categoriaService.persiste(Categoria);
 		publisher.publishEvent(
 				new RecursoCriadoEvent(produtoPersistido, httpServletResponse, produtoPersistido.getId()));
 		return ResponseEntity.status(HttpStatus.CREATED).body(produtoPersistido);
@@ -42,22 +42,22 @@ public class ControllerProdutos implements CADController<Produto> {
 
 	@GetMapping
 	@Override
-	public List<Produto> listar() {
-		return produtoService.listar();
+	public List<Categoria> listar() {
+		return categoriaService.listar();
 	}
 
 	@GetMapping("/{id}")
 	@Override
-	public ResponseEntity<Optional<Produto>> consulta(Long id) {
-		Optional<Produto> produto = produtoService.busca(id);
-		return produto.isPresent() ? ResponseEntity.ok(produto) : ResponseEntity.notFound().build();
+	public ResponseEntity<Optional<Categoria>> consulta(Long id) {
+		Optional<Categoria> Categoria = categoriaService.busca(id);
+		return Categoria.isPresent() ? ResponseEntity.ok(Categoria) : ResponseEntity.notFound().build();
 	}
 
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@Override
 	public void remove(Long id) {
-		produtoService.deleta(id);
+		categoriaService.deleta(id);
 	}
 
 }

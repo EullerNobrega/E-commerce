@@ -9,13 +9,13 @@ import javax.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 
-public interface CadServiceGenerico<T> {
+public interface CadService<T> {
 	
-	public ResponseEntity<T> persiste(@Valid @RequestBody T t, HttpServletResponse httpServletResponse);
+	public T persiste(@Valid @RequestBody T t);
 	
 	public List<T> listar();
 	
-	public ResponseEntity<Optional<T>> busca(Long id);
+	public Optional<T> busca(Long id);
 	
 	public void deleta (Long id);
 

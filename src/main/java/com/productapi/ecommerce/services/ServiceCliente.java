@@ -7,35 +7,35 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
+import com.productapi.ecommerce.dao.DaoCliente;
 import com.productapi.ecommerce.dao.DaoPessoa;
 import com.productapi.ecommerce.model.pessoa.Cliente;
 
-public class ServiceCliente implements CadServiceGenerico<Cliente>{
+@Service
+public class ServiceCliente implements CadService<Cliente>{
 	@Autowired
-	DaoPessoa daoPessoa;
+	DaoCliente daoCliente;
 
 	@Override
-	public ResponseEntity<Cliente> persiste(Cliente t, HttpServletResponse httpServletResponse) {
-		// TODO Auto-generated method stub
-		return null;
+	public Cliente persiste(Cliente c) {
+		return daoCliente.save(c);
 	}
 
 	@Override
 	public List<Cliente> listar() {
-		// TODO Auto-generated method stub
-		return null;
+		return daoCliente.findAll();
 	}
 
 	@Override
-	public ResponseEntity<Optional<Cliente>> busca(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Optional<Cliente> busca(Long id) {
+		return daoCliente.findById(id);
 	}
 
 	@Override
 	public void deleta(Long id) {
-		// TODO Auto-generated method stub
+		daoCliente.deleteById(id);;
 		
 	}
 

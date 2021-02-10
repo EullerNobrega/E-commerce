@@ -18,23 +18,23 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.productapi.ecommerce.event.RecursoCriadoEvent;
-import com.productapi.ecommerce.model.processo_venda.Produto;
-import com.productapi.ecommerce.services.ServiceProduto;
+import com.productapi.ecommerce.model.pessoa.Pessoa;
+import com.productapi.ecommerce.services.ServicePessoa;
 
 @RestController
-@RequestMapping("produtos")
-public class ControllerProdutos implements CADController<Produto> {
+@RequestMapping("pessoas")
+public class ControllerPessoa implements CADController<Pessoa> {
 	
 	@Autowired
-	private ServiceProduto produtoService;
+	private ServicePessoa produtoService;
 
 	@Autowired
 	private ApplicationEventPublisher publisher;
 
 	@PostMapping
 	@Override
-	public ResponseEntity<Produto> insere(@Valid Produto produto, HttpServletResponse httpServletResponse) {
-		Produto produtoPersistido = produtoService.persiste(produto);
+	public ResponseEntity<Pessoa> insere(@Valid Pessoa produto, HttpServletResponse httpServletResponse) {
+		Pessoa produtoPersistido = produtoService.persiste(produto);
 		publisher.publishEvent(
 				new RecursoCriadoEvent(produtoPersistido, httpServletResponse, produtoPersistido.getId()));
 		return ResponseEntity.status(HttpStatus.CREATED).body(produtoPersistido);
@@ -42,14 +42,14 @@ public class ControllerProdutos implements CADController<Produto> {
 
 	@GetMapping
 	@Override
-	public List<Produto> listar() {
+	public List<Pessoa> listar() {
 		return produtoService.listar();
 	}
 
 	@GetMapping("/{id}")
 	@Override
-	public ResponseEntity<Optional<Produto>> consulta(Long id) {
-		Optional<Produto> produto = produtoService.busca(id);
+	public ResponseEntity<Optional<Pessoa>> consulta(Long id) {
+		Optional<Pessoa> produto = produtoService.busca(id);
 		return produto.isPresent() ? ResponseEntity.ok(produto) : ResponseEntity.notFound().build();
 	}
 
