@@ -17,6 +17,17 @@ public class Conta extends AbstractEntity {
 	}
 
 	/**
+	 * @param username
+	 * @param senha
+	 */
+	public Conta(String username, String senha, String email) {
+		super();
+		this.username = username;
+		this.senha = senha;
+		this.email = email;
+	}
+
+	/**
 	 * 
 	 */
 	private String username;
@@ -25,6 +36,11 @@ public class Conta extends AbstractEntity {
 	 * 
 	 */
 	private String senha;
+
+	/**
+	 * 
+	 */
+	private String email;
 
 	public String getUsername() {
 		return username;
@@ -40,6 +56,14 @@ public class Conta extends AbstractEntity {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }

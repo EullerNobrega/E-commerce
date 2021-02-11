@@ -18,45 +18,45 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.productapi.ecommerce.event.RecursoCriadoEvent;
-import com.productapi.ecommerce.model.pessoa.Cliente;
-import com.productapi.ecommerce.services.ServiceCliente;
+import com.productapi.ecommerce.model.pessoa.Usuario;
+import com.productapi.ecommerce.services.ServiceUsuario;
 
 @RestController
-@RequestMapping("clientes")
-public class ControllerCliente implements CADController<Cliente> {
+@RequestMapping("usuarios")
+public class ControllerUsuario implements CADController<Usuario> {
 
 	@Autowired
-	private ServiceCliente clienteService;
+	private ServiceUsuario usuarioService;
 
 	@Autowired
 	private ApplicationEventPublisher publisher;
 
 	@PostMapping
 	@Override
-	public ResponseEntity<Cliente> insere(@Valid Cliente cliente, HttpServletResponse httpServletResponse) {
-		Cliente clientePersistido = clienteService.persiste(cliente);
-		publisher.publishEvent(new RecursoCriadoEvent(this, httpServletResponse, clientePersistido.getId()));
-		return ResponseEntity.status(HttpStatus.CREATED).body(clientePersistido);
+	public ResponseEntity<Usuario> insere(@Valid Usuario usuario, HttpServletResponse httpServletResponse) {
+		Usuario usuarioPersistido = usuarioService.persiste(usuario);
+		publisher.publishEvent(new RecursoCriadoEvent(this, httpServletResponse, usuarioPersistido.getId()));
+		return ResponseEntity.status(HttpStatus.CREATED).body(usuarioPersistido);
 	}
 
 	@GetMapping
 	@Override
-	public List<Cliente> listar() {
-		return clienteService.listar();
+	public List<Usuario> listar() {
+		return usuarioService.listar();
 	}
 
 	@GetMapping("/{id}")
 	@Override
-	public ResponseEntity<Optional<Cliente>> consulta(Long id) {
-		Optional<Cliente> cliente = clienteService.busca(id);
-		return cliente.isPresent() ? ResponseEntity.ok(cliente) : ResponseEntity.notFound().build();
+	public ResponseEntity<Optional<Usuario>> consulta(Long id) {
+		Optional<Usuario> usuario = usuarioService.busca(id);
+		return usuario.isPresent() ? ResponseEntity.ok(usuario) : ResponseEntity.notFound().build();
 	}
 
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@Override
 	public void remove(Long id) {
-		clienteService.deleta(id);
+		usuarioService.deleta(id);
 
 	}
 

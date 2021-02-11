@@ -7,7 +7,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import com.productapi.ecommerce.model.AbstractEntity;
-import com.productapi.ecommerce.model.pessoa.Cliente;
+import com.productapi.ecommerce.model.pessoa.Usuario;
 
 /**
  * 
@@ -36,7 +36,7 @@ public class Carrinho extends AbstractEntity {
 	 * 
 	 */
 	@OneToOne
-	private Cliente cliente;
+	private Usuario Usuario;
 
 	public float getTotal() {
 		return total;
@@ -54,12 +54,12 @@ public class Carrinho extends AbstractEntity {
 		this.itens = itens;
 	}
 
-	public Cliente getCliente() {
-		return cliente;
+	public Usuario getUsuario() {
+		return Usuario;
 	}
 
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+	public void setUsuario(Usuario Usuario) {
+		this.Usuario = Usuario;
 	}
 	
 }
