@@ -15,7 +15,7 @@ public class CartaoCredito extends Pagamento implements RealizarPagamento {
 	}
 
 	@Override
-	public StatusPagamento realizaPagamento(Pagamento pagamento) {
+	public StatusPagamento realizaPagamento(DadosPagamento dadosPagamento) {
 		return StatusPagamento.Aguardando;
 	}
 
