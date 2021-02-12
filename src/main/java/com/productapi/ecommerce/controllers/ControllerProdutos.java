@@ -24,7 +24,7 @@ import com.productapi.ecommerce.services.ServiceProduto;
 @RestController
 @RequestMapping("produtos")
 public class ControllerProdutos implements CADController<Produto> {
-	
+
 	@Autowired
 	private ServiceProduto produtoService;
 

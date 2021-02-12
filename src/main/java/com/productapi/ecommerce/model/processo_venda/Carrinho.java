@@ -31,7 +31,7 @@ public class Carrinho extends AbstractEntity {
 	 */
 	@OneToMany
 	private List<Item> itens;
-	
+
 	/**
 	 * 
 	 */
@@ -61,5 +61,5 @@ public class Carrinho extends AbstractEntity {
 	public void setUsuario(Usuario Usuario) {
 		this.Usuario = Usuario;
 	}
-	
+
 }

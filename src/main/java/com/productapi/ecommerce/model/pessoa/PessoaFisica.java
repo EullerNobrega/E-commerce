@@ -1,5 +1,7 @@
 package com.productapi.ecommerce.model.pessoa;
 
+import java.time.*;
+
 import javax.persistence.Entity;
 
 import org.hibernate.validator.constraints.br.CPF;
@@ -30,7 +32,7 @@ public class PessoaFisica extends Pessoa {
 	/**
 	 * 
 	 */
-	private String dataNascimento;
+	private LocalDate dataNascimento;
 
 	public String getCpf() {
 		return cpf;
@@ -48,11 +50,11 @@ public class PessoaFisica extends Pessoa {
 		this.nome = nome;
 	}
 
-	public String getDataNascimento() {
+	public LocalDate getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(String dataNascimento) {
+	public void setDataNascimento(LocalDate dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 

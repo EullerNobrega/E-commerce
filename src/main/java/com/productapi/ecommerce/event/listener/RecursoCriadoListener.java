@@ -11,20 +11,19 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.productapi.ecommerce.event.RecursoCriadoEvent;
 
 @Component
-public class RecursoCriadoListener implements ApplicationListener<RecursoCriadoEvent>{
+public class RecursoCriadoListener implements ApplicationListener<RecursoCriadoEvent> {
 
 	@Override
 	public void onApplicationEvent(RecursoCriadoEvent event) {
 		HttpServletResponse response = event.getResponse();
 		Long codigo = event.getCodigo();
-		
+
 		URI uri = adicionarHeader(codigo);
 		response.setHeader("Location", uri.toASCIIString());
 	}
 
 	private URI adicionarHeader(Long codigo) {
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}")
-				.buildAndExpand(codigo).toUri();
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(codigo).toUri();
 		return uri;
 	}
 
