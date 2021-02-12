@@ -11,23 +11,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/test")
 public class TestController {
 
-    @GetMapping("/all")
-    public String allAccess(){
-        return "Public Content.";
-    }
+	@GetMapping("/all")
+	public String allAccess() {
+		return "Public Content.";
+	}
 
-    @GetMapping("/user")
-    @PreAuthorize("hasFuncao('ADMIN') or hasFuncao('CLIENTE')")
-    public String userAccess(){
-        return "User Content.";
-    }
+	@GetMapping("/user")
+	@PreAuthorize("hasFuncao('ADMIN') or hasFuncao('CLIENTE')")
+	public String userAccess() {
+		return "User Content.";
+	}
 
-    @GetMapping("/admin")
-    @PreAuthorize("hasFuncao('ADMIN')")
-    public String adminAccess(){
-        return "Admin Board.";
-    }
-
-
+	@GetMapping("/admin")
+	@PreAuthorize("hasFuncao('ADMIN')")
+	public String adminAccess() {
+		return "Admin Board.";
+	}
 
 }
