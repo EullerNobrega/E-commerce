@@ -14,8 +14,8 @@ public class CartaoDebito extends Pagamento implements RealizarPagamento {
 	}
 
 	@Override
-	public StatusPagamento realizaPagamento(Pagamento pagamento) {
-		// TODO Auto-generated method stub
+	public StatusPagamento realizaPagamento(DadosPagamento dadosPagamento) {
+		
 		return StatusPagamento.Aguardando;
 	}
 

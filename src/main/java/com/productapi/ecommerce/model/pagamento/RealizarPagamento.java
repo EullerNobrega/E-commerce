@@ -4,6 +4,6 @@ import com.productapi.ecommerce.model.processo_venda.StatusPagamento;
 
 public interface RealizarPagamento {
 	
-	public StatusPagamento realizaPagamento(Pagamento pagamento);
+	public StatusPagamento realizaPagamento(DadosPagamento dadosPagamento);
 
 }

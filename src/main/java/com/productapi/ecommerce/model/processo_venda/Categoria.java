@@ -20,7 +20,7 @@ public class Categoria extends AbstractEntity {
 	 * 
 	 */
 	private String tipo;
-	
+
 	/**
 	 * 
 	 */

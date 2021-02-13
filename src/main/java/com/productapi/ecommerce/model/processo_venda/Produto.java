@@ -3,7 +3,6 @@ package com.productapi.ecommerce.model.processo_venda;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import com.productapi.ecommerce.model.AbstractEntity;
 
@@ -40,7 +39,7 @@ public class Produto extends AbstractEntity {
 	 */
 	@OneToOne
 	private Categoria categoria;
-	
+
 	/**
 	 * 
 	 */

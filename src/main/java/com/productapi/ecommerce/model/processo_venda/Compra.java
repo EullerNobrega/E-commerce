@@ -7,7 +7,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import com.productapi.ecommerce.model.AbstractEntity;
-import com.productapi.ecommerce.model.pessoa.Cliente;
+import com.productapi.ecommerce.model.pessoa.Usuario;
 
 /**
  * 
@@ -30,7 +30,7 @@ public class Compra extends AbstractEntity {
 	 * 
 	 */
 	@OneToOne
-	private Cliente clientePagador;
+	private Usuario UsuarioPagador;
 
 	/**
 	 * 
@@ -51,12 +51,12 @@ public class Compra extends AbstractEntity {
 		this.situacao = situacao;
 	}
 
-	public Cliente getClientePagador() {
-		return clientePagador;
+	public Usuario getUsuarioPagador() {
+		return UsuarioPagador;
 	}
 
-	public void setClientePagador(Cliente clientePagador) {
-		this.clientePagador = clientePagador;
+	public void setUsuarioPagador(Usuario UsuarioPagador) {
+		this.UsuarioPagador = UsuarioPagador;
 	}
 
 	public List<Item> getItens() {
