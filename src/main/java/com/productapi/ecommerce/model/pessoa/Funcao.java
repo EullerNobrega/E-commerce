@@ -3,7 +3,6 @@ package com.productapi.ecommerce.model.pessoa;
 import javax.persistence.*;
 
 @Entity
-@Table(name="tb_fucaoo")
 public class Funcao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -74,7 +74,7 @@ public class AuthController {
 			return ResponseEntity.badRequest().body(new MessageResponse("Erro: Email já cadastrado"));
 		}
 
-		Usuario user = new Usuario();
+		Usuario user = new Usuario(signUpRequest.getUsername(),encoder.encode(signUpRequest.getPassword()), signUpRequest.getEmail());
 
 		Set<String> strFuncoes = signUpRequest.getFuncao();
 		Set<Funcao> funcoes = new HashSet<>();
