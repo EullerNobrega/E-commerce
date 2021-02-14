@@ -16,6 +16,10 @@ public class Categoria extends AbstractEntity {
 	public Categoria() {
 	}
 
+	public Categoria(String tipo) {
+		this.tipo = tipo;
+	}
+
 	/**
 	 * 
 	 */
